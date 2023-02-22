@@ -1,4 +1,4 @@
-package ru.vertuoscode.translatorapi.models;
+package ru.starshinDev.translatorapi.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

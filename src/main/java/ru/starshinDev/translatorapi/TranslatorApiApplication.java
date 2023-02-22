@@ -1,4 +1,4 @@
-package ru.vertuoscode.translatorapi;
+package ru.starshinDev.translatorapi;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
