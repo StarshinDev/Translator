@@ -12,9 +12,11 @@ spring:
     hibernate:
       ddl-auto: none
   liquibase:
-    change-log: classpath:liquibase/changelog.yaml
+    change-log: classpath:db/changelog/changelog-master.yaml
+    enabled: true
+
 translator:
   yandex:
-    api-key : AQVNwXveQsj7mt0M3ucjfqlqh-WvBzJgKpDrEDSR
+    api-key : <>
     api-url : https://translate.api.cloud.yandex.net/translate/v2/translate
-    api-folder-id : b1ga6ctv889h3jr2dgu5
+    api-folder-id : <>
