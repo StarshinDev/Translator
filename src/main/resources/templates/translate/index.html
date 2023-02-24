@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Translate</title>
+    <style>
+        .my_button {
+            width: 150px;
+            height: 30px;
+            border-radius: 15px;
+            background: #1abc9c;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align:center"><span style="color:#1abc9c">Микросервис &quot;Переводчик&quot;</span></h1>
+
+<form th:method="POST" th:action="@{/translator}" th:object="${newRequest}">
+    <p style="text-align:center">
+        <textarea cols="70" name="SourceText" rows="10" th:field="*{sourceText}" placeholder="Введите исходный текст:">Введите текст:</textarea>
+        <span style="color:red" th:if="${#fields.hasErrors('sourceText')}" th:errors="*{sourceText}">
+            ERROR
+        </span>
+    </p>
+
+    <p style="text-align:center">
+        <span style="color:#1abc9c">
+            <span style="font-size:20px">Укажите код исходного языка: </span>
+        </span>
+        <input size="2" type="text" th:field="*{sourceLanguage}"/>
+        <span style="color:red" th:if="${#fields.hasErrors('sourceLanguage')}" th:errors="*{sourceLanguage}">
+            ERROR
+        </span>
+    </p>
+
+    <p style="text-align:center">
+        <span style="color:#1abc9c">
+            <span style="font-size:20px">Укажите код целевого языка: </span>
+        </span>
+        <input size="2" type="text" th:field="*{targetLanguage}"/>
+        <span style="color:red" th:if="${#fields.hasErrors('targetLanguage')}" th:errors="*{targetLanguage}">
+            ERROR
+        </span>
+    </p>
+
+    <p style="text-align:center; color:#1abc9c; font-size:8px">
+        <input name="translate" type="submit" class="my_button" value="Перевести текст =&gt;" />
+    </p>
+</form>
+<form th:object="${response}">
+    <p style="text-align: center">
+        <textarea cols="70" name="ResultText" rows="10" readonly="readonly" th:field="*{translatedText}" placeholder="Перевод текста:"></textarea>
+    </p>
+</form>
+</body>
+</html>
