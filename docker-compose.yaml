@@ -1,0 +1,20 @@
+version: "3.0"
+services:
+  postgres:
+    container_name: 'translateDB'
+    image: 'postgres:15.1-alpine'
+    ports:
+      - '5432:5432'
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_DB=Yandex_Translator'
+  app:
+    container_name: 'translateApp'
+    build: ./
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      - 'translator.yandex.api-key=<>'
+      - 'translator.yandex.api-folder-id=<>'
